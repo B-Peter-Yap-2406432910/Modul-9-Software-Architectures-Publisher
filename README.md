@@ -19,3 +19,9 @@ Jadi karena publisher dan subsriber terhubung dengan perantara message broker ya
 ![RabbitMQPublished](static/images/RabbitMQAfterPublish.png)
 
 Spikenya melambangkan laju publikasi pesan dari publisher ke queue. setiap publisher dijalankan dan 5 data user selesai dikirim ke queue, laju akan kembali ke 0 karena pesan yang ingin diproduksi sudah tidak ada lagi.
+
+
+### Slow Subscriber
+![SlowSubsriber](static/images/RabbitMQSlowSubscriber.png)
+
+Terjadi bottleneck karena subscriber dipaksa menunggu setiap harus memproses event. publisher berjalan lebih cepat dari subscriber dan ketika subscriber tidak bisa memproses secepat itu, maka akan ditampung terlebih dahulu di queue. Pada skenario saya, saya memiliki queue sebanyak 6 karena delay antar run publish yang 1 dengan yang lainnya ada beberapa detik dimana pada delay tersebut queue tersebut dilayani maka peak saya hanya ada di 6 queue saja.
