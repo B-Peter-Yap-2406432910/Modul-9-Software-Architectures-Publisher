@@ -8,3 +8,9 @@
 
 ### Screenshot RabbitMQ
 ![Screenshot RabbitMQ](static/images/RabbitMQScreen.png)
+
+### Screenshot setelah menjalankan publisher dan subscriber
+![Publisher](static/images/Publisher.png)
+![Subscriber](static/images/Subscriber.png)
+
+Jadi karena publisher dan subsriber terhubung dengan perantara message broker yang sama (RabbitMQ), maka ketika saya menjalankan publisher data yang dikirim akan tersampaikan ke subscriber. Publisher akan membuat 5 data user setiap dijalankan dan mengirim data tersebut ke rabbitMQ. Subsriber yang melakukan infinite loop akan listening, menangkap, mendeserialisasi, lalu mencetak data yang ia terima setiap ada data yang masuk di rabbitMQ. 
